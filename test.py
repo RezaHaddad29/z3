@@ -1,28 +1,66 @@
 from z3 import *
 
 
-x1 = Int('x1')
-x2 = Int('x2')
-x3 = Int('x3')
-x4 = Int('x4')
-x5 = Int('x5')
-x6 = Int('x6')
-x7 = Int('x7')
-x8 = Int('x8')
-x9 = Int('x9')
+# # Use I as an alias for IntSort()
+# I = IntSort()
+# # A is an array from integer to integer
+# A = Array('A', I, I)
+# x = Int('x')
 
-s = Solver()
+# s = Solver()
+# Store(A,0,29)
+# s.check()
 
-for i in range(1,10):
-    s.add(eval("x{0} >0".format(i)))
-    s.add(eval("x{0} <10".format(i)))
-    for j in range(i,10):
-        if i!=j:
-            r = "x{0} != x{1}".format(i,j)
-            s.add(eval(r))
-    
-s.add(x1+x2+x3+x4 ==17)
-s.add(x4+x5+x6+x7 ==17)
-s.add(x7+x8+x9+x1 ==17)
-s.check()
-print(s.model())
+# print(A[0])
+
+
+# A = Array('A', IntSort(), IntSort())
+# x, y = Ints('x y')
+# print(solve(A[x] == x, Store(A, x, y) == A, x != y))
+
+
+
+
+
+# Color, (red, green, blue) = EnumSort('Color', ('red', 'green', 'blue'))
+
+# print (simplify(green == green))
+
+# c = Const('c', Color)
+# solve(c != green, c != blue)
+
+
+
+# Color, (red, green, blue) = EnumSort('Color', ['red', 'green', 'blue'])
+
+# nElems = Color.num_constructors();
+
+# s = Solver()
+
+# vs = [Const("v%d" % i, Color) for i in range(nElems)]
+# for i in range(nElems):
+#     s.add(vs[i] == Color.constructor(i)())
+
+# print(s.check())
+# print(s.model())
+
+# A = Array('A', IntSort(), ArraySort(IntSort(), IntSort()))
+# x, y = Ints('x y')
+# s = Solver()
+# s.add(Store(A,0,(0,2)))
+# s.add(x = A[0][0])
+# print(A[x][y])
+
+# a = int(input())
+# b = int(input())
+# r = int(input())
+
+# f = z3.Function('f',IntSort(),IntSort(),IntSort())
+# s= Solver()
+# x,y=Ints('x y')
+# s.add(x == a)
+# s.add(y == b)
+# s.add(ForAll([x,y],z3.Or(f(x,y)==x+y, f(x,y)==x*y)))
+# s.add(f(x,y)==r)
+# s.check()
+# print(s.model())
