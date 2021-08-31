@@ -67,52 +67,5 @@ from z3 import *
 
 
 
-s = Solver()
-R = [[Int(f"R{i}_C{j}") for j in range(9)] for i in range(9)]
-
-for r in R:
-    for c in r:
-        s.add(c >= 1)
-        s.add(c <= 9)
-
-for r in R:
-    s.add(Distinct(r))
-
-for i in range(9):
-    l = []
-    for j in range(9):
-        l.append(R[j][i])
-    s.add(Distinct(l))
-
-for row in range(0,7,3):
-    for k in range(0,7,3):
-        box = []
-        for i in range(row,row+3):
-            for j in range(k,k+3):
-                box.append(R[i][j])
-        s.add(Distinct(box))
-
-pzl = ((0,0,0,0,9,4,0,3,0),
-            (0,0,0,5,1,0,0,0,7),
-            (0,8,9,0,0,0,0,4,0),
-            (0,0,0,0,0,0,2,0,8),
-            (0,6,0,2,0,1,0,5,0),
-            (1,0,2,0,0,0,0,0,0),
-            (0,7,0,0,0,0,5,2,0),
-            (9,0,0,0,6,5,0,0,0),
-            (0,4,0,9,7,0,0,0,0))
-
-pzl_ = [ If(pzl[i][j] == 0,
-                  True,
-                  R[i][j] == pzl[i][j])
-               for i in range(9) for j in range(9) ]
-s.add(pzl_)
-s.check()
-
-print(pzl_)
 
 
-m = s.model()
-r = [ [ m.evaluate(R[i][j]) for j in range(9) ]
-        for i in range(9) ]
-print_matrix(r)
