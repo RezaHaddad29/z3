@@ -67,5 +67,21 @@ from z3 import *
 
 
 
+# s = Solver()
 
+# Q = [Int(f'Q{i}') for i in range(100)]
 
+# costs = ""
+
+# s.add(Distinct(Q[0],Q[1],Q[2]))
+
+# for i in range(100):
+#     s.add(Or(Q[i] == 1500,Or(Q[i] == 100,Q[i] == 25)))
+#     if(i == 99):
+#         costs +=f"Q[{i}] == 10000"
+#     else:     
+#         costs +=f"Q[{i}] + "
+
+# s.add(eval(costs))
+# s.check()
+# print(s.model())
