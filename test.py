@@ -1,4 +1,4 @@
-from z3 import *
+# from z3 import *
 
 
 # # Use I as an alias for IntSort()
@@ -85,3 +85,5 @@ from z3 import *
 # s.add(eval(costs))
 # s.check()
 # print(s.model())
+
+
