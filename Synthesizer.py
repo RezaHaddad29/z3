@@ -23,7 +23,7 @@ def operation(R, op, opl_reg, opr_reg, opr_imm):
            If(op==2, leftOperand << opr_imm,
                0)))
 
-
+# reza
 def Eval(R, s, m, STEPS, op, op1_reg, op2_reg, op2_imm):
     op_n=m[op[s]].as_long()
     op1_reg_tmp=m[op1_reg[s]].as_long()
